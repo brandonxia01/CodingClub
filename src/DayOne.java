@@ -1,9 +1,11 @@
-import utils.*
+import utils.*;
+import java.util.*;
+
 
 class DayOne {
 
   public static void main(String[] args) {
-    int startTime = System.currentTimeMillis();
+    long startTime = System.currentTimeMillis();
 
     /* Code Goes Here */
     exampleFunction();
@@ -11,12 +13,17 @@ class DayOne {
 
     FileReader fileReader = new FileReader();
 
-    String[] lines = readFile("~/CodingClub/assets/01.txt");
-    System.out.println("lines = " + lines[0] + lines[1]);
+    String[] lines = fileReader.readFile("assets/01.txt");
 
+    for (int i = 0; i < lines.length; i++) {
+      System.out.println(lines[i]);
+      if (i > 50) {
+        break;
+      }
+    }
 
-    int endTime = System.currentTimeMillis();
-    System.out.println("Program took " + (double (startTime - endTime)) / 1000) + " seconds to finish."
+    double endTime = System.currentTimeMillis();
+    System.out.println("\nProgram took " + ((endTime * 1.0 - startTime) / 1000) + " seconds to finish.");
   }
 
   public static void exampleFunction() {
