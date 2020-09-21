@@ -6,14 +6,11 @@ class DayOne {
 
   public static void main(String[] args) {
     long startTime = System.currentTimeMillis();
+    FileReader fileReader = new FileReader();
+    String[] lines = fileReader.readFile("../assets/01.txt");
+
 
     /* Code Goes Here */
-    exampleFunction();
-    exampleIfStatement(45);
-
-    FileReader fileReader = new FileReader();
-
-    String[] lines = fileReader.readFile("assets/01.txt");
 
     for (int i = 0; i < lines.length; i++) {
       System.out.println(lines[i]);
@@ -22,6 +19,11 @@ class DayOne {
       }
     }
 
+
+
+    
+
+    // Leave these be.
     double endTime = System.currentTimeMillis();
     System.out.println("\nProgram took " + ((endTime * 1.0 - startTime) / 1000) + " seconds to finish.");
   }
