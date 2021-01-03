@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>Brando's Doggos!</title>
+  </head>
+
+  <body style="background-color: lightblue">
+    <div style="text-align: center">
+      <h1>This is my website!</h1>
+
+      <h3>Created by Brandon Xia.</h3>
+
+      <p>
+        This site is for dogs, <br />
+        very nice dogs that like me,<br />
+        even when I frown.
+      </p>
+      <img id="doggo" style="height: 300px" src="" onerror="dosomething(false)" />
+
+      <br />
+      <br />
+      <br />
+
+      <button style="width: 100px; height: 50px; color: purple; background-color: lightpink" onclick="dosomething(true)">
+        Change Doggo
+      </button>
+
+
+      <audio id="llevan" type="audio/mp3" style="width:0px; height:0px; visibility:hidden" src="https://github.com/brandonxia01/brandonxia01.github.io/raw/master/leek.mp3">
+
+      <button onclick="sayHi()">Click Me to Say Hi</button>
+
+    </div>
+  </body>
+
+  <script>
+    function sayHi() {
+      console.log("hi");
+      
+    }
+  </script>
+
+
+  <script>
+    function dosomething(allowMeme) {
+      var doggos = [
+        "https://cdn.orvis.com/images/DBS_Beagle_1280.jpg", // index 0
+        "https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg", // index 1
+        "https://cdn.orvis.com/images/DBS_GoldRetriever_1280.jpg", // index 2
+        "https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg",
+        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
+        "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2018/04/Siberian-Husky_01.jpg",
+      ];
+
+      var doc = document.getElementById("doggo");
+
+      var length = doggos.length;
+
+      var randomNumber = Math.floor(Math.random() * length); // random number between 0 and length-1
+      var value = doggos[randomNumber];
+
+      while (value == doc.src) {
+        randomNumber = Math.floor(Math.random() * length); // random number between 0 and length-1
+        value = doggos[randomNumber];
+      }
+
+      var music = document.getElementById("llevan");
+      if (value == "https://i.kym-cdn.com/entries/icons/mobile/000/013/564/doge.jpg") {
+        if (allowMeme) {
+          music.play();
+        } else {
+          dosomething(false);
+          return;
+        }
+      } else {
+        music.pause()
+      }
+
+      doc.src = value;
+    }
+  </script>
+</html>
